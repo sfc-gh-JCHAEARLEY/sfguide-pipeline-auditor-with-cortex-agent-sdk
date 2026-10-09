@@ -1,0 +1,25 @@
+definition_version: "2"
+
+entities:
+  pipeline_auditor:
+    type: snowflake-app
+    identifier:
+      name: PIPELINE_AUDITOR
+      database: SNOWFLAKE_APPS
+      schema: PUBLIC
+    meta:
+      title: pipeline_auditor
+    artifacts:
+      - src: ./*
+        dest: ./
+        ignore:
+          - node_modules
+          - .env*
+          - __pycache__
+          - "*.pyc"
+          - .next
+          - .git
+          - snowflake.log
+
+    query_warehouse: SNOWFLAKE_APPS_QUERY_WH
+    code_stage: PIPELINE_AUDITOR_CODE
